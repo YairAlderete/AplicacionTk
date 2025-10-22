@@ -5,40 +5,45 @@ ventana.title("bs")
 ventana.geometry("450x230")
 ventana.resizable(False,False)
 
-gmail = tk.Label(ventana, text = "ingresa gmail")
+frame1 = tk.Frame(ventana, bg="cyan",width="300", height="350", bd=4, relief="sunken")
+frame1.pack()
+
+gmail = tk.Label(frame1, text = "ingresa gmail", bg="cyan")
 gmail.pack()
-ingreso_contraseña= tk.Entry(ventana)
+entrada_gmail= tk.Entry(frame1)
+entrada_gmail.pack()
 
-ingreso_contraseña.pack()
-contrasena = tk.Label(ventana, text="ingresa la contraseña")
-contrasena.pack()
+contrasena = tk.Label(frame1, text="ingresa la contraseña", bg="cyan")
+contrasena.pack(pady=10)
+ingreso_contrasena= tk.Entry(frame1)
+ingreso_contrasena.pack()
 
-ingreso_contraseña= tk.Entry(ventana)
-ingreso_contraseña.pack()
+
 
 gmail_correcto= "pepe573"
-
-ingreso_contraseña= "123456"
+contrasena_correcta= "123456"
 
 def sesion():
-    usuario = gmail_correcto.get()
-    contrasena = ingreso_contraseña.get()
+    gmail = entrada_gmail.get()
+    contrasena = ingreso_contrasena.get()
     
-    if gmail==gmail_correcto and contrasena ==ingreso_contraseña:
+    if gmail==gmail_correcto and contrasena == contrasena_correcta:
         mensajeB.config(text=f'inicio de sesioj cojn exito')
     else:
         mensajeB.config(text=f'gmail o contraseña incorrecta')
 
-botonIinicar= tk.Button(ventana, text="iniciar sesion", command=sesion,bg="green")
+botonIinicar= tk.Button(frame1, text="iniciar sesion", command=sesion,bg="green")
 botonIinicar.pack()
 
-ventana.mainloop
-
-
-
-
-
-
-
-mensajeB =tk.Label(ventana)
+mensajeB =tk.Label(frame1)
 mensajeB.pack()
+
+
+ventana.mainloop()
+
+
+
+
+
+
+
